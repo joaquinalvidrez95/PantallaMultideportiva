@@ -3,14 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:icon="@drawable/ic_play_arrow_white_24dp"
         android:orderInCategory="0"
         android:title="Arranque"
         app:showAsAction="always" />
     <item
+        android:icon="@drawable/baseline_pause_white_24"
         android:orderInCategory="1"
         android:title="Paro"
         app:showAsAction="always" />
     <item
+        android:icon="@drawable/ic_refresh_white_24dp"
         android:orderInCategory="2"
         android:title="Reset"
         app:showAsAction="always" />

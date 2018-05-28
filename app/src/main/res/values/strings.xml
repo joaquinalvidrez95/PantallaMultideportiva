@@ -1,8 +1,28 @@
 <resources>
     <string name="app_name">Pantalla Multideportiva</string>
 
+    <string name="tab_title_home">Principal</string>
+    <string name="tab_title_parameters">Parámetros</string>
+
     <string name="toolbar_title_bluetooth">Seleccionar dispositivo</string>
     <string name="toolbar_title_about">Acerca de</string>
     <string name="toolbar_title_connected">Conectado</string>
     <string name="toolbar_title_disconnected">Desconectado</string>
+
+    <string name="text_view_home">TextView</string>
+    <string name="text_view_guest">LOCAL</string>
+    <string name="text_view_faltas">Faltas</string>
+
+    <string name="text_about_website">www.citsadigital.com</string>
+    <string name="text_about_phone">Tels: (81)8478–7965 y 66</string>
+    <string name="text_about_email_design">disenoelectronico@citsadigital.com</string>
+    <string name="text_about_email_support">soporte@citsadigital.com</string>
+    <string name="text_about_citsa_title">CITSA DIGITAL®</string>
+    <string name="text_about_app_version">Version 1.0.0</string>
+
+    <string name="button_text_about_visit_us">Visítanos</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bottom_navigation_title_home">Principal</string>
+    <string name="bottom_navigation_title_settings">Ajustes</string>
 </resources>
