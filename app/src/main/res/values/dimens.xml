@@ -1,0 +1,21 @@
+<resources>
+    <dimen name="textsize_title_exchange">24sp</dimen>
+    <dimen name="textsize_exchanges_extra">24sp</dimen>
+
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="size_button_counter">40dp</dimen>
+
+    <dimen name="padding_horitzontal_dialog">24dp</dimen>
+
+    <dimen name="margin_padding_standard">16dip</dimen>
+
+    <dimen name="padding_horizontal_dialog">24dp</dimen>
+    <dimen name="padding_top_dialog">20dp</dimen>
+
+    <dimen name="margin_vertical_tile">20dp</dimen>
+    <dimen name="height_itemlist_twolines">72dp</dimen>
+    <dimen name="height_itemlist_threelines">88dp</dimen>
+    <dimen name="margin_top_counter">8dp</dimen>
+
+</resources>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/pref_title_category_time">
+        <EditTextPreference
+            android:key="name_key"
+            android:maxLength="20"
+            android:title="Nombre de equipo de casa" />
+        <!--<SwitchPreferenceCompat-->
+        <!--android:defaultValue="true"-->
+        <!--android:icon="@drawable/ic_power_settings_new_black_24dp"-->
+        <!--android:key="@string/pref_key_power"-->
+        <!--android:summaryOff="@string/pref_summary_on_power"-->
+        <!--android:summaryOn="@string/pref_summary_off_power"-->
+        <!--android:title="@string/pref_title_power" />-->
+
+        <!--<SeekBarPreference-->
+        <!--android:defaultValue="@integer/pref_default_brightness"-->
+        <!--android:dependency="@string/pref_key_power"-->
+        <!--android:icon="@drawable/ic_brightness_6_black_24dp"-->
+        <!--android:key="@string/pref_key_brightness"-->
+        <!--android:max="@integer/pref_max_brightness"-->
+        <!--android:title="@string/pref_title_brightness" />-->
+    </PreferenceCategory>
+
+    <!--<PreferenceCategory android:title="@string/pref_title_category_messages">-->
+    <!--<SeekBarPreference-->
+    <!--android:defaultValue="@integer/pref_default_speed"-->
+    <!--android:dependency="@string/pref_key_power"-->
+    <!--android:icon="@drawable/ic_fast_forward_black_24dp"-->
+    <!--android:key="@string/pref_key_speed"-->
+    <!--android:max="@integer/pref_max_speed"-->
+    <!--android:title="@string/pref_title_speed" />-->
+    <!--</PreferenceCategory>-->
+
+    <!--<PreferenceCategory-->
+    <!--android:dependency="@string/pref_key_power"-->
+    <!--android:title="@string/pref_title_category_visibility">-->
+    <!--<com.citsadigital.divisasrgb.custompreference.ListPreferenceAutoSummary-->
+    <!--android:defaultValue="@string/pref_default_view"-->
+    <!--android:entries="@array/pref_choices_entries_view"-->
+    <!--android:entryValues="@array/pref_choices_values_view"-->
+    <!--android:key="@string/pref_key_view"-->
+    <!--android:title="@string/pref_title_view" />-->
+    <!--<com.citsadigital.divisasrgb.custompreference.ListPreferenceAutoSummary-->
+    <!--android:defaultValue="@string/pref_default_displaying_mode"-->
+    <!--android:entries="@array/pref_choices_entries_displaying_mode"-->
+    <!--android:entryValues="@array/pref_choices_values_displaying_mode"-->
+    <!--android:key="@string/pref_key_displaying_mode"-->
+    <!--android:title="@string/pref_title_displaying_mode" />-->
+    <!--<SeekBarPreference-->
+    <!--style="@style/Preference.SeekBarPreference.Material.App.Time"-->
+    <!--android:key="@string/pref_key_time_buy"-->
+    <!--android:title="@string/pref_title_time_buy" />-->
+    <!--<SeekBarPreference-->
+    <!--style="@style/Preference.SeekBarPreference.Material.App.Time"-->
+    <!--android:key="@string/pref_key_time_sell"-->
+    <!--android:selectable="false"-->
+    <!--android:title="@string/pref_title_time_sell" />-->
+
+    <!--</PreferenceCategory>-->
+
+    <!--<PreferenceCategory-->
+    <!--android:dependency="@string/pref_key_power"-->
+    <!--android:key="@string/pref_key_category_effect"-->
+    <!--android:title="@string/pref_title_category_effects">-->
+
+    <!--<com.citsadigital.divisasrgb.custompreference.ListPreferenceAutoSummary-->
+    <!--android:defaultValue="@string/pref_default_effect"-->
+    <!--android:dependency="@string/pref_key_category_effect"-->
+    <!--android:entries="@array/pref_choices_entries_effect"-->
+    <!--android:entryValues="@array/pref_choices_values_effect"-->
+    <!--android:key="@string/pref_key_effect"-->
+    <!--android:title="@string/pref_title_effect" />-->
+    <!--<SeekBarPreference-->
+    <!--android:defaultValue="@integer/pref_default_effect_speed"-->
+    <!--android:dependency="@string/pref_key_category_effect"-->
+    <!--android:icon="@drawable/ic_fast_forward_black_24dp"-->
+    <!--android:key="@string/pref_key_effect_speed"-->
+    <!--android:max="@integer/pref_max_effect_speed"-->
+    <!--android:title="@string/pref_title_effect_speed" />-->
+
+    <!--</PreferenceCategory>-->
+
+</PreferenceScreen>

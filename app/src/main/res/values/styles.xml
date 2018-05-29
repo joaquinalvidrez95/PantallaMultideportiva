@@ -6,22 +6,87 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material.App</item>
     </style>
+
+    <style name="PreferenceThemeOverlay.v14.Material.App">
+        <item name="preferenceCategoryStyle">@style/Preference.Category.Material.CustomColor</item>
+        <!--<item name="seekBarPreferenceStyle">@style/Preference.SeekBarPreference.Material.App</item>-->
+    </style>
+
+    <style name="Preference.Category.Material.CustomColor">
+        <item name="android:layout">@layout/preferences_category</item>
+    </style>
+
 
     <style name="TextViewNumbers">
-        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
     </style>
 
-    <style name="TextViewNumbers.Large">
+    <style name="TextViewNumbers.Red">
+        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:layout_marginTop">@dimen/margin_top_counter</item>
+    </style>
+
+    <style name="TextViewNumbers.White">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="Widget.AppCompat.Button.Colored.Counter">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:layout_width">@dimen/size_button_counter</item>
+        <item name="android:layout_height">@dimen/size_button_counter</item>
+        <item name="colorControlHighlight">@android:color/white</item>
+    </style>
+
+    <style name="Widget.AppCompat.Button.Colored.Counter.Plus">
+        <item name="android:text">+</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+    </style>
+
+    <style name="Widget.AppCompat.Button.Colored.Counter.Minus">
+        <item name="android:text">-</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+    </style>
+
+    <style name="TextViewStyleAbout">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="TextViewStyleAbout.Large">
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
     </style>
 
-    <style name="TextAppearance.AppCompat.Large.Numbers">
-        <item name="android:textColor">@color/colorAccent</item>
+    <style name="DividerLine">
+        <item name="android:background">@color/divider</item>
+        <item name="android:layout_height">1dp</item>
     </style>
 
-    <style name="TextAppearance.AppCompat.Medium.Numbers">
-        <item name="android:textColor">@color/colorAccent</item>
+    <style name="Widget.AppCompat.EditText.TeamName">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:imeOptions">actionSend</item>
+        <item name="android:maxLength">@integer/max_length_team_name</item>
+        <item name="android:digits">@string/characters_allowed_message</item>
+        <item name="android:inputType">text</item>
+        <item name="android:singleLine">true</item>
     </style>
+
+    <style name="Widget.AppCompat.EditText.TeamName.X">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="android:ems">8</item>
+    </style>
+
+    <style name="Widget.Design.TextInputLayout.TeamName">
+        <item name="android:textColorHint">@color/colorSecondaryText</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+    </style>
+
 
 </resources>
