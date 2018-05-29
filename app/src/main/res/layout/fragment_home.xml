@@ -75,25 +75,26 @@
 
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/text_view_set_title"
         style="@style/TextViewNumbers.White"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:text="@string/text_view_title_set"
+        app:layout_constraintBottom_toTopOf="@+id/textViewSet"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewHomeScore" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textViewSet"
         style="@style/TextViewNumbers.Red"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
         android:text="234"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
         tools:text="823" />
 
     <TextView
@@ -138,14 +139,13 @@
         app:layout_constraintEnd_toEndOf="@+id/edit_text_guest_name_layout"
         app:layout_constraintStart_toStartOf="@+id/edit_text_guest_name_layout"
         app:layout_constraintTop_toBottomOf="@+id/edit_text_guest_name_layout"
-        tools:text="050" />
+        tools:text="450" />
 
     <TextView
         android:id="@+id/text_view_home_violations"
         style="@style/TextViewNumbers.Red"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_top_counter"
         android:text="123"
         app:layout_constraintEnd_toEndOf="@+id/text_view_home_violations_title"
         app:layout_constraintStart_toStartOf="@+id/text_view_home_violations_title"
@@ -225,6 +225,22 @@
         app:layout_constraintBottom_toBottomOf="@+id/text_view_guest_score"
         app:layout_constraintStart_toEndOf="@+id/text_view_guest_score"
         app:layout_constraintTop_toTopOf="@+id/text_view_guest_score" />
+
+    <Button
+        android:id="@+id/button_decrease_guest_violations"
+        style="@style/Widget.AppCompat.Button.Colored.Counter.Minus"
+        android:theme="@style/Widget.AppCompat.Button.Colored.Counter"
+        app:layout_constraintBottom_toBottomOf="@+id/text_view_guest_violations"
+        app:layout_constraintEnd_toStartOf="@+id/text_view_guest_violations"
+        app:layout_constraintTop_toTopOf="@+id/text_view_guest_violations" />
+
+    <Button
+        android:id="@+id/button_increase_guest_violations"
+        style="@style/Widget.AppCompat.Button.Colored.Counter.Plus"
+        android:theme="@style/Widget.AppCompat.Button.Colored.Counter"
+        app:layout_constraintBottom_toBottomOf="@+id/text_view_guest_violations"
+        app:layout_constraintStart_toEndOf="@+id/text_view_guest_violations"
+        app:layout_constraintTop_toTopOf="@+id/text_view_guest_violations" />
 
 
 </android.support.constraint.ConstraintLayout>

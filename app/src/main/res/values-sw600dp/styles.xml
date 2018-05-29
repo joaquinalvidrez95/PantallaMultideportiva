@@ -10,4 +10,12 @@
         <item name="android:ems">12</item>
     </style>
 
+    <style name="Widget.AppCompat.Button.Colored.Counter">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:layout_width">@dimen/size_button_counter</item>
+        <item name="android:layout_height">@dimen/size_button_counter</item>
+        <item name="colorControlHighlight">@android:color/white</item>
+    </style>
+
 </resources>
