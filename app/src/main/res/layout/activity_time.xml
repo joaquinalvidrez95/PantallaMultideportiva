@@ -15,6 +15,7 @@
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/pickerMinutes"
         app:layout_constraintEnd_toStartOf="@+id/text_view_title_time"
+        app:layout_constraintHorizontal_bias="0.78"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/pickerMinutes" />
 
@@ -30,9 +31,11 @@
     <NumberPicker
         android:id="@+id/pickerMinutes"
         style="@style/NumberPickerTime"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonSendTime"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="105dp" />
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button_set_time"
+        app:layout_constraintEnd_toStartOf="@+id/pickerSeconds"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_view_time"
@@ -46,17 +49,12 @@
     <NumberPicker
         android:id="@+id/pickerSeconds"
         style="@style/NumberPickerTime"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/pickerMinutes"
-        app:layout_constraintEnd_toStartOf="@+id/radioGroup"
-        app:layout_constraintStart_toEndOf="@+id/text_view_time"
-        app:layout_constraintTop_toTopOf="@+id/pickerMinutes" />
+        app:layout_constraintTop_toTopOf="@+id/pickerMinutes"
+        tools:layout_editor_absoluteX="738dp" />
 
     <Button
-        android:id="@+id/buttonSendTime"
+        android:id="@+id/button_set_time"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -113,13 +111,15 @@
         app:layout_constraintTop_toBottomOf="@+id/pickerMinutes" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/radio_group_time_format"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/pickerSeconds"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -128,13 +128,13 @@
             android:text="Formato de hora" />
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/radio_button_hours_minutes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Horas:Minutos" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/radio_button_minutes_seconds"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Minutos:Segundos" />

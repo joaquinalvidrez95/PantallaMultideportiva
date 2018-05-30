@@ -87,7 +87,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         })
 
         mainViewModel.getTime().observe(this, Observer {
-            text_view_time.text = it?.toString()
+            text_view_time.text = it?.time
         })
 
 

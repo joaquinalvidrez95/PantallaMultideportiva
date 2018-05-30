@@ -17,16 +17,15 @@ import android.view.WindowManager
 import com.citsadigital.pantallamultideportiva.R
 import com.citsadigital.pantallamultideportiva.fragment.HomeFragment
 import com.citsadigital.pantallamultideportiva.fragment.LoginDialogFragment
-import com.citsadigital.pantallamultideportiva.util.BUNDLE_KEY_DEVICE
-import com.citsadigital.pantallamultideportiva.util.BUNDLE_KEY_DEVICE_STATE
-import com.citsadigital.pantallamultideportiva.util.BUNDLE_KEY_MESSAGE
-import com.citsadigital.pantallamultideportiva.util.BluetoothConstants
+import com.citsadigital.pantallamultideportiva.model.BoardTime
+import com.citsadigital.pantallamultideportiva.util.*
 import com.citsadigital.pantallamultideportiva.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 private const val TAG_HOME_FRAGMENT = "TAG_HOME"
 private const val TAG_SETTINGS_FRAGMENT = "TAG_SETTINGS"
 const val REQUEST_DEVICE = 13
+const val REQUEST_BOARD_TIME = 12
 const val REQUEST_ENABLE_BT = 10
 
 class MainActivity : AppCompatActivity() {
@@ -104,10 +103,20 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == REQUEST_DEVICE && resultCode == Activity.RESULT_OK) {
-            val device = data?.extras?.getParcelable<BluetoothDevice>(BUNDLE_KEY_DEVICE)
-            device?.let { mainViewModel?.onDeviceSelected(device) }
+        if (resultCode != Activity.RESULT_OK) return
+        when (requestCode) {
+            REQUEST_DEVICE -> {
+                val device = data?.extras?.getParcelable<BluetoothDevice>(BUNDLE_KEY_DEVICE)
+                device?.let { mainViewModel?.onDeviceSelected(device) }
+            }
+            REQUEST_BOARD_TIME -> {
+                val boardTime = data?.extras?.getParcelable<BoardTime>(BUNDLE_KEY_BOARD_TIME)
+                showMessage(boardTime.toString())
+                mainViewModel?.setBoardTime(boardTime)
+            }
         }
+
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -143,7 +152,17 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.action_menu_time -> {
 //                TimeDialogFragment().show(supportFragmentManager, "")
-                startActivity(Intent(this, TimeActivity::class.java))
+                val boardTime = mainViewModel?.getTime()?.value
+                boardTime?.let {
+                    startActivityForResult(Intent(
+                            this,
+                            TimeActivity::class.java).apply {
+                        putExtra(BUNDLE_KEY_BOARD_TIME, boardTime)
+//                        putExtra(BUNDLE_KEY_BOARD_TIME_FORMAT, boardTime.format)
+//                        putExtra(BUNDLE_KEY_BOARD_TIME_COUNTING_MODE, boardTime.countMode)
+                    },
+                            REQUEST_BOARD_TIME)
+                }
 
             }
 
@@ -158,7 +177,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun setFragment(fragment: Fragment, tag: String) {
         supportFragmentManager.beginTransaction().replace(frameLayout.id, fragment, tag).commit()
-
     }
 
     fun showMessage(text: String) =

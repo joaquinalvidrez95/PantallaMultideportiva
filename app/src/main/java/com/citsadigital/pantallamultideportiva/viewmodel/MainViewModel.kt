@@ -28,6 +28,7 @@ class MainViewModel(application: Application) : BaseMainViewModel(application) {
         guestScore.value = 0
         guestViolations.value = 0
         numberOfSet.value = 0
+        time.value = BoardTime()
     }
 
 
@@ -144,12 +145,12 @@ class MainViewModel(application: Application) : BaseMainViewModel(application) {
 
     fun increaseHomeScore() {
         increaseTeamScore(homeScore, homeTeam)
-        bluetoothService.write("%s%d\n".format(BluetoothConstants.Contract.HOME_SCORE, homeTeam.score))
+        bluetoothService.write("%s%03d\n".format(BluetoothConstants.Contract.HOME_SCORE, homeTeam.score))
     }
 
     fun decreaseHomeScore() {
         decreaseTeamScore(homeScore, homeTeam)
-        bluetoothService.write("%s%d\n".format(BluetoothConstants.Contract.HOME_SCORE, homeTeam.score))
+        bluetoothService.write("%s%03d\n".format(BluetoothConstants.Contract.HOME_SCORE, homeTeam.score))
     }
 
 
@@ -209,11 +210,14 @@ class MainViewModel(application: Application) : BaseMainViewModel(application) {
 
     fun increaseSets() {
         numberOfSet.value?.let { if (it < 9) numberOfSet.value = it + 1 }
-//        if (numberOfSet)
     }
 
     fun decreaseSets() {
         numberOfSet.value?.let { if (it > 0) numberOfSet.value = it - 1 }
+    }
+
+    fun setBoardTime(boardTime: BoardTime?) {
+        time.value = boardTime
     }
 
 
