@@ -4,7 +4,8 @@
 
     <dimen name="fab_margin">16dp</dimen>
 
-    <dimen name="size_button_counter">40dp</dimen>
+    <!--<dimen name="size_button_counter">40dp</dimen>-->
+    <dimen name="size_button_counter">45dp</dimen>
 
     <dimen name="padding_horitzontal_dialog">24dp</dimen>
 
@@ -17,5 +18,7 @@
     <dimen name="height_itemlist_twolines">72dp</dimen>
     <dimen name="height_itemlist_threelines">88dp</dimen>
     <dimen name="margin_top_counter">8dp</dimen>
+
+    <dimen name="text_size_button_board">18sp</dimen>
 
 </resources>

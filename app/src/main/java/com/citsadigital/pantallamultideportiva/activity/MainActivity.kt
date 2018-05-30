@@ -1,15 +1,27 @@
 package com.citsadigital.pantallamultideportiva.activity
 
+import android.app.Activity
+import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProviders
 import android.bluetooth.BluetoothAdapter
+import android.bluetooth.BluetoothDevice
 import android.content.Intent
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.preference.PreferenceManager
 import android.view.Menu
 import android.view.MenuItem
 import android.view.WindowManager
 import com.citsadigital.pantallamultideportiva.R
 import com.citsadigital.pantallamultideportiva.fragment.HomeFragment
+import com.citsadigital.pantallamultideportiva.fragment.LoginDialogFragment
+import com.citsadigital.pantallamultideportiva.util.BUNDLE_KEY_DEVICE
+import com.citsadigital.pantallamultideportiva.util.BUNDLE_KEY_DEVICE_STATE
+import com.citsadigital.pantallamultideportiva.util.BUNDLE_KEY_MESSAGE
+import com.citsadigital.pantallamultideportiva.util.BluetoothConstants
+import com.citsadigital.pantallamultideportiva.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 private const val TAG_HOME_FRAGMENT = "TAG_HOME"
@@ -19,12 +31,46 @@ const val REQUEST_ENABLE_BT = 10
 
 class MainActivity : AppCompatActivity() {
 
+    private var mainViewModel: MainViewModel? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        supportActionBar?.setTitle(R.string.toolbar_title_disconnected)
         this.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
+
+        mainViewModel = ViewModelProviders.of(this)[MainViewModel::class.java]
+        mainViewModel?.isConnected()?.observe(
+                this,
+                Observer { t ->
+                    supportActionBar?.title =
+                            if (t == true)
+                                getString(R.string.toolbar_title_connected)
+                            else getString(R.string.toolbar_title_disconnected)
+                })
+        mainViewModel?.getConnectionState()?.observe(
+                this,
+                Observer { bundle ->
+                    val message = bundle?.getString(BUNDLE_KEY_MESSAGE) ?: ""
+                    when (bundle?.getInt(BUNDLE_KEY_DEVICE_STATE)) {
+                        BluetoothConstants.DeviceState.CONNECTED ->
+                            LoginDialogFragment.newInstance(
+                                    PreferenceManager
+                                            .getDefaultSharedPreferences(this)
+                                            .getString(
+                                                    getString(R.string.pref_key_password),
+                                                    getString(R.string.pref_default_password)
+                                            )
+                            ).show(supportFragmentManager, "")
+                        BluetoothConstants.DeviceState.DISPLAY_CONNECTED,
+                        BluetoothConstants.DeviceState.DISCONNECTED,
+                        BluetoothConstants.DeviceState.CONNECTION_FAILED -> showMessage(message)
+
+                    }
+
+                })
+        mainViewModel?.getMessage()?.observe(this, Observer { t -> showMessage(t ?: "") })
+
+
 
         setFragment(HomeFragment(), TAG_HOME_FRAGMENT)
 
@@ -55,6 +101,15 @@ class MainActivity : AppCompatActivity() {
 //        }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == REQUEST_DEVICE && resultCode == Activity.RESULT_OK) {
+            val device = data?.extras?.getParcelable<BluetoothDevice>(BUNDLE_KEY_DEVICE)
+            device?.let { mainViewModel?.onDeviceSelected(device) }
+        }
+    }
+
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.action_menu_about -> startActivity(Intent(this, AboutActivity::class.java))
@@ -65,6 +120,33 @@ class MainActivity : AppCompatActivity() {
                     startActivityForResult(Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE), REQUEST_ENABLE_BT)
                 }
             }
+            R.id.action_menu_play -> {
+                if (mainViewModel?.isConnected()?.value == true) {
+                    mainViewModel?.playBoard()
+                } else {
+                    showMessage(getString(R.string.message_disconnected))
+                }
+            }
+            R.id.action_menu_pause -> {
+                if (mainViewModel?.isConnected()?.value == true) {
+                    mainViewModel?.pauseBoard()
+                } else {
+                    showMessage(getString(R.string.message_disconnected))
+                }
+            }
+            R.id.action_menu_reset_board -> {
+                if (mainViewModel?.isConnected()?.value == true) {
+                    mainViewModel?.resetBoard()
+                } else {
+                    showMessage(getString(R.string.message_disconnected))
+                }
+            }
+            R.id.action_menu_time -> {
+//                TimeDialogFragment().show(supportFragmentManager, "")
+                startActivity(Intent(this, TimeActivity::class.java))
+
+            }
+
         }
         return super.onOptionsItemSelected(item)
     }
@@ -78,4 +160,7 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().replace(frameLayout.id, fragment, tag).commit()
 
     }
+
+    fun showMessage(text: String) =
+            Snackbar.make(frameLayout, text, Snackbar.LENGTH_LONG).show()
 }

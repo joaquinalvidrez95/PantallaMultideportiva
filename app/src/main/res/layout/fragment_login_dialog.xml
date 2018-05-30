@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/padding_top_dialog"
+    tools:context=".fragment.LoginDialogFragment">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayoutPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/padding_horizontal_dialog"
+        android:paddingRight="@dimen/padding_horizontal_dialog"
+        android:paddingStart="@dimen/padding_horizontal_dialog"
+        app:errorEnabled="true">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/passwordText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:digits="@string/characters_allowed_login"
+            android:hint="@string/dialog_title_login_dialog"
+            android:inputType="number"
+            android:maxLength="@integer/passwordLength" />
+    </android.support.design.widget.TextInputLayout>
+
+
+</LinearLayout>
+
+

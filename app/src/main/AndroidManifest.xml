@@ -3,6 +3,8 @@
     package="com.citsadigital.pantallamultideportiva">
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -32,6 +34,15 @@
         <activity
             android:name=".activity.BluetoothActivity"
             android:label="@string/toolbar_title_bluetooth"
+            android:parentActivityName=".activity.MainActivity"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.MainActivity" />
+        </activity>
+        <activity
+            android:name=".activity.TimeActivity"
+            android:label="Ajustar el tiempo"
             android:parentActivityName=".activity.MainActivity"
             android:screenOrientation="landscape">
             <meta-data

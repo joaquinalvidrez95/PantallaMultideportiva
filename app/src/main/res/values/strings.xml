@@ -8,10 +8,17 @@
     <string name="toolbar_title_about">Acerca de</string>
     <string name="toolbar_title_connected">Conectado</string>
     <string name="toolbar_title_disconnected">Desconectado</string>
+    <string name="toolbar_title_play">Arrancar</string>
+    <string name="toolbar_title_pause">Parar</string>
+    <string name="toolbar_title_reset_board">Reiniciar tablero</string>
+    <string name="toolbar_title_time">Ajustar tiempo</string>
+
+    <string name="dialog_title_login_dialog">Ingrese el pin</string>
 
     <string name="text_view_home">Local</string>
     <string name="text_view_guest">Visita</string>
     <string name="text_view_violations">Faltas</string>
+    <string name="text_view_time">Tiempo</string>
 
     <string name="characters_allowed_message">!&#32;&#34;#$%&#39;()*+,-./0123456789:;&#60;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzñÑ</string>
     <string name="characters_allowed_login">0123456789</string>
@@ -24,8 +31,6 @@
     <string name="text_about_citsa_title">CITSA DIGITAL®</string>
     <string name="text_about_app_version">Version 1.0.0</string>
 
-    <string name="button_text_about_visit_us">Visítanos</string>
-
     <string name="message_no_bonded_devices">No hay dispositivos sincronizados</string>
 
 
@@ -33,4 +38,88 @@
     <string name="bottom_navigation_title_settings">Ajustes</string>
     <string name="pref_title_category_time">Tiempo</string>
     <string name="text_view_title_set">Set</string>
+
+    <string name="tab_title_exchanges">Divisas</string>
+    <string name="tab_title_settings">Parámetros</string>
+    <string name="tab_title_messages_list">Mensajes</string>
+
+    <string name="action_title_main_send_quick_message">Enviar mensaje instantáneo</string>
+    <string name="action_title_edit_message">Editar</string>
+    <string name="action_title_delete_message">Eliminar</string>
+    <string name="action_title_send_message">Enviar</string>
+
+
+    <string name="button_text_update_exchanges">Enviar divisas</string>
+    <string name="button_text_about_visit_us">Visítanos</string>
+
+    <string name="hint_login_dialog_pin">@string/dialog_title_login_dialog</string>
+    <string name="hint_message_dialog_title">Título</string>
+    <string name="hint_message_dialog_text">Cuerpo del mensaje</string>
+    <string name="hint_quick_message_body">@string/hint_message_dialog_text</string>
+
+    <string name="dialog_title_new_message">Crear mensaje</string>
+    <string name="dialog_title_edit_message">Editar mensaje</string>
+    <string name="dialog_title_send_quick_message">Enviar mensaje instantáneo</string>
+
+    <string name="dialog_positive_button_accept">Aceptar</string>
+    <string name="dialog_positive_button_save">Guardar</string>
+    <string name="dialog_positive_button_send_quick_message">@string/action_title_send_message</string>
+
+    <string name="dialog_negative_button_cancel">Cancelar</string>
+
+    <string name="message_message_dialog_title_repeated">Título en uso</string>
+    <string name="message_password">Pin incorrecto, intente de nuevo</string>
+    <string name="message_invalid_colours">Color de fondo y texto inválidos</string>
+    <string name="message_invalid_device">Dispositivo inválido</string>
+    <string name="message_connection_failed">No se logró conectar a %1$s</string>
+    <string name="message_device_connected">Conectado a %1$s</string>
+    <string name="message_connection_lost">Conexión con %1$s perdida</string>
+    <string name="message_message_added">Mensaje guardado</string>
+    <string name="message_disconnected">Dispositivo desconectado</string>
+    <string name="message_message_deleted">Mensaje eliminado</string>
+
+    <string name="pref_default_device_address">DeviceAddressDefault</string>
+    <string name="pref_default_displaying_mode">0</string>
+    <string name="pref_default_view">0</string>
+    <string name="pref_default_effect">0</string>
+    <string name="pref_default_password" />
+
+    <string name="pref_title_color_buy">Color de compra</string>
+    <string name="pref_title_color_sell">Color de venta</string>
+    <string name="pref_title_color_message">Color de mensaje</string>
+    <string name="pref_title_color_background">Color de fondo</string>
+    <string name="pref_title_power">Encender display</string>
+    <string name="pref_title_brightness">Brillo</string>
+    <string name="pref_title_displaying_mode">Modo de desplegar vista</string>
+    <string name="pref_title_speed">Velocidad de mensaje</string>
+    <string name="pref_title_effect_speed">Velocidad de efecto</string>
+    <string name="pref_title_effect">Tipo de efecto</string>
+    <string name="pref_title_time_buy">Tiempo de compra</string>
+    <string name="pref_title_time_sell">Tiempo de venta</string>
+    <string name="pref_title_view">Tipo de vista</string>
+
+    <string name="pref_title_category_messages">Mensajes</string>
+    <string name="pref_title_category_display">Estado del display</string>
+    <string name="pref_title_category_colours">Colores</string>
+    <string name="pref_title_category_visibility">Visibilidad</string>
+    <string name="pref_title_category_effects">Efectos</string>
+
+    <string name="pref_key_password">password_key</string>
+    <string name="pref_key_color_buy">TextoSuperiorKey</string>
+    <string name="pref_key_color_sell">TextoInferiorKey</string>
+    <string name="pref_key_color_message">MessageColorKey</string>
+    <string name="pref_key_color_background">FondoKey</string>
+    <string name="pref_key_power">power_key</string>
+    <string name="pref_key_category_effect">EffectCategoryKey</string>
+    <string name="pref_key_effect">EffectKey</string>
+    <string name="pref_key_brightness">brightness_key</string>
+    <string name="pref_key_view">VistaKey</string>
+    <string name="pref_key_speed">MessageSpeedKey</string>
+    <string name="pref_key_effect_speed">EffectSpeedKey</string>
+    <string name="pref_key_displaying_mode">key_displayingmode</string>
+    <string name="pref_key_time_buy">key_time_buy</string>
+    <string name="pref_key_time_sell">key_time_sell</string>
+    <string name="pref_key_device_address">DeviceAddressKey</string>
+
+
 </resources>

@@ -2,4 +2,5 @@
 <resources>
     <dimen name="size_button_counter">70dp</dimen>
     <dimen name="margin_top_counter">24dp</dimen>
+    <dimen name="text_size_button_board">40sp</dimen>
 </resources>

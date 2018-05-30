@@ -6,20 +6,27 @@
         android:id="@+id/action_menu_play"
         android:icon="@drawable/ic_play_arrow_white_24dp"
         android:orderInCategory="0"
-        android:title="Arranque"
+        android:title="@string/toolbar_title_play"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_menu_pause"
         android:icon="@drawable/baseline_pause_white_24"
         android:orderInCategory="1"
-        android:title="Paro"
+        android:title="@string/toolbar_title_pause"
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/action_menu_reset"
+        android:id="@+id/action_menu_reset_board"
         android:icon="@drawable/ic_refresh_white_24dp"
         android:orderInCategory="2"
-        android:title="Reset"
+        android:title="@string/toolbar_title_reset_board"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_menu_time"
+        android:icon="@drawable/ic_timer_white_24dp"
+        android:orderInCategory="2"
+        android:title="@string/toolbar_title_time"
         app:showAsAction="always" />
 
     <item

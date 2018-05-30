@@ -32,20 +32,21 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
-    <style name="Widget.AppCompat.Button.Colored.Counter">
-        <item name="android:textColor">@android:color/white</item>
+    <style name="Widget.AppCompat.Button.Counter">
+        <item name="android:textColor">?attr/colorPrimary</item>
         <item name="android:layout_width">@dimen/size_button_counter</item>
         <item name="android:layout_height">@dimen/size_button_counter</item>
         <item name="colorControlHighlight">@android:color/white</item>
+        <item name="android:textSize">@dimen/text_size_button_board</item>
     </style>
 
-    <style name="Widget.AppCompat.Button.Colored.Counter.Plus">
+    <style name="Widget.AppCompat.Button.Counter.Plus">
         <item name="android:text">+</item>
         <item name="android:layout_marginLeft">8dp</item>
         <item name="android:layout_marginStart">8dp</item>
     </style>
 
-    <style name="Widget.AppCompat.Button.Colored.Counter.Minus">
+    <style name="Widget.AppCompat.Button.Counter.Minus">
         <item name="android:text">-</item>
         <item name="android:layout_marginRight">8dp</item>
         <item name="android:layout_marginEnd">8dp</item>
@@ -86,6 +87,19 @@
         <item name="android:layout_marginRight">16dp</item>
         <item name="android:layout_marginStart">16dp</item>
         <item name="android:layout_marginTop">16dp</item>
+    </style>
+
+    <style name="NumberPickerTime">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:descendantFocusability">blocksDescendants</item>
+    </style>
+
+    <style name="TextViewColon">
+        <!--<item name="android:textColor">@color/primary_text</item>-->
+        <item name="android:text">:</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
 
