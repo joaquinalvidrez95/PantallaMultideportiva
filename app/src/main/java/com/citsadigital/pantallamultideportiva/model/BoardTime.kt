@@ -16,15 +16,15 @@ fun secondsToHours(totalSeconds: Int) = totalSeconds / 3600
 fun secondsToMinutes(totalSeconds: Int) = totalSeconds / 60 % 60
 fun totalSecondsToSeconds(totalSeconds: Int) = totalSeconds % 60
 
-data class BoardTime(var timeInSeconds: Int = 5632, var format: Int = 0, var countMode: Int = 0) : Parcelable {
+data class BoardTime(var totalSeconds: Int = 5632, var format: Int = 0, var countMode: Int = 0) : Parcelable {
     val time: String
         get() {
             return when (format) {
                 TIME_FORMAT_HOURS_MINUTES -> {
-                    "%02d:%02d".format(secondsToHours(timeInSeconds), secondsToMinutes(timeInSeconds))
+                    "%02d:%02d".format(secondsToHours(totalSeconds), secondsToMinutes(totalSeconds))
                 }
                 TIME_FORMAT_MINUTES_SECONDS -> {
-                    "%02d:%02d".format(timeInSeconds / 60, totalSecondsToSeconds(timeInSeconds))
+                    "%02d:%02d".format(totalSeconds / 60, totalSecondsToSeconds(totalSeconds))
                 }
                 else -> {
                     ""
@@ -32,9 +32,9 @@ data class BoardTime(var timeInSeconds: Int = 5632, var format: Int = 0, var cou
             }
         }
 
-    val hours: Int get() = secondsToHours(timeInSeconds)
-    val minutes: Int get() = timeInSeconds / 60 % 60
-    val seconds: Int get() = timeInSeconds % 60
+    val hours: Int get() = secondsToHours(totalSeconds)
+    val minutes: Int get() = totalSeconds / 60 % 60
+    val seconds: Int get() = totalSeconds % 60
 
     constructor(parcel: Parcel) : this(
             parcel.readInt(),
@@ -42,7 +42,7 @@ data class BoardTime(var timeInSeconds: Int = 5632, var format: Int = 0, var cou
             parcel.readInt())
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeInt(timeInSeconds)
+        parcel.writeInt(totalSeconds)
         parcel.writeInt(format)
         parcel.writeInt(countMode)
     }

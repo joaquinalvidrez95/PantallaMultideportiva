@@ -158,8 +158,6 @@ class MainActivity : AppCompatActivity() {
                             this,
                             TimeActivity::class.java).apply {
                         putExtra(BUNDLE_KEY_BOARD_TIME, boardTime)
-//                        putExtra(BUNDLE_KEY_BOARD_TIME_FORMAT, boardTime.format)
-//                        putExtra(BUNDLE_KEY_BOARD_TIME_COUNTING_MODE, boardTime.countMode)
                     },
                             REQUEST_BOARD_TIME)
                 }
