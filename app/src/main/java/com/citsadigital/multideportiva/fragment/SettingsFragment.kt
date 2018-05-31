@@ -1,10 +1,10 @@
-package com.citsadigital.pantallamultideportiva.fragment
+package com.citsadigital.multideportiva.fragment
 
 
 import android.os.Bundle
 import android.support.v7.preference.PreferenceFragmentCompat
 import android.util.Log
-import com.citsadigital.pantallamultideportiva.R
+import com.citsadigital.multideportiva.R
 
 
 class SettingsFragment : PreferenceFragmentCompat() {

@@ -1,14 +1,14 @@
-package com.citsadigital.pantallamultideportiva.activity
+package com.citsadigital.multideportiva.activity
 
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
-import com.citsadigital.pantallamultideportiva.R
-import com.citsadigital.pantallamultideportiva.fragment.TimePickerFragment
-import com.citsadigital.pantallamultideportiva.model.*
-import com.citsadigital.pantallamultideportiva.util.BUNDLE_KEY_BOARD_TIME
+import com.citsadigital.multideportiva.R
+import com.citsadigital.multideportiva.fragment.TimePickerFragment
+import com.citsadigital.multideportiva.model.*
+import com.citsadigital.multideportiva.util.BUNDLE_KEY_BOARD_TIME
 import kotlinx.android.synthetic.main.activity_time.*
 
 private const val MAX_TIME = 5999

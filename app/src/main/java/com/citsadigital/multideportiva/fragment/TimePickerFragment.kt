@@ -1,4 +1,4 @@
-package com.citsadigital.pantallamultideportiva.fragment
+package com.citsadigital.multideportiva.fragment
 
 
 import android.os.Bundle
@@ -8,9 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.NumberPicker
 
-import com.citsadigital.pantallamultideportiva.R
-import com.citsadigital.pantallamultideportiva.model.BoardTime
-import com.citsadigital.pantallamultideportiva.util.BUNDLE_KEY_BOARD_TIME
+import com.citsadigital.multideportiva.R
+import com.citsadigital.multideportiva.model.BoardTime
+import com.citsadigital.multideportiva.util.BUNDLE_KEY_BOARD_TIME
 import kotlinx.android.synthetic.main.fragment_time_picker.*
 
 // TODO: Rename parameter arguments, choose names that match

@@ -1,4 +1,4 @@
-package com.citsadigital.pantallamultideportiva.customcontrol;
+package com.citsadigital.multideportiva.customcontrol;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -1,4 +1,4 @@
-package com.citsadigital.pantallamultideportiva.model
+package com.citsadigital.multideportiva.model
 
 import android.os.Parcel
 import android.os.Parcelable
@@ -17,7 +17,7 @@ fun secondsToMinutes(totalSeconds: Int) = totalSeconds / 60 % 60
 fun totalSecondsToSeconds(totalSeconds: Int) = totalSeconds % 60
 
 data class BoardTime(var totalSeconds: Int = 0, var format: Int = 0, var countMode: Int = 0) : Parcelable {
-    val time: String
+    val timeWithColon: String
         get() {
             return when (format) {
                 TIME_FORMAT_HOURS_MINUTES -> {
@@ -31,6 +31,8 @@ data class BoardTime(var totalSeconds: Int = 0, var format: Int = 0, var countMo
                 }
             }
         }
+
+    val timeFormated: String get() = "%02d%02d%02d".format(hours, minutes, seconds)
 
     val hours: Int get() = secondsToHours(totalSeconds)
     val minutes: Int get() = totalSeconds / 60 % 60

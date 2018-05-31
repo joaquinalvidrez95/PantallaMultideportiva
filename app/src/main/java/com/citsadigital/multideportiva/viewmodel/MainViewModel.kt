@@ -1,17 +1,14 @@
-package com.citsadigital.pantallamultideportiva.viewmodel
+package com.citsadigital.multideportiva.viewmodel
 
 import android.app.Application
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.bluetooth.BluetoothDevice
 import android.os.Bundle
-import com.citsadigital.pantallamultideportiva.R
-import com.citsadigital.pantallamultideportiva.model.BoardTime
-import com.citsadigital.pantallamultideportiva.model.Team
-import com.citsadigital.pantallamultideportiva.util.BUNDLE_KEY_DEVICE
-import com.citsadigital.pantallamultideportiva.util.BUNDLE_KEY_DEVICE_STATE
-import com.citsadigital.pantallamultideportiva.util.BUNDLE_KEY_MESSAGE
-import com.citsadigital.pantallamultideportiva.util.BluetoothConstants
+import com.citsadigital.multideportiva.R
+import com.citsadigital.multideportiva.model.BoardTime
+import com.citsadigital.multideportiva.model.Team
+import com.citsadigital.multideportiva.util.*
 
 
 class MainViewModel(application: Application) : BaseMainViewModel(application) {
@@ -134,17 +131,11 @@ class MainViewModel(application: Application) : BaseMainViewModel(application) {
 //    }
 
 
-    fun playBoard() {
+    fun playBoard() = bluetoothService.write("${BluetoothConstants.Contract.START_STOP}$COMMAND_START\n")
 
-    }
+    fun resetBoard() = bluetoothService.write("${BluetoothConstants.Contract.RESET_BOARD}\n")
 
-    fun resetBoard() {
-
-    }
-
-    fun pauseBoard() {
-
-    }
+    fun pauseBoard() = bluetoothService.write("${BluetoothConstants.Contract.START_STOP}$COMMAND_PAUSE\n")
 
     fun increaseHomeScore() {
         increaseTeamScore(homeScore, homeTeam)
@@ -212,15 +203,26 @@ class MainViewModel(application: Application) : BaseMainViewModel(application) {
     fun getTime(): LiveData<BoardTime> = time
 
     fun increaseSets() {
-        numberOfSet.value?.let { if (it < 9) numberOfSet.value = it + 1 }
+        numberOfSet.value?.let {
+            if (it < 9) {
+                numberOfSet.value = it + 1
+                bluetoothService.write("${BluetoothConstants.Contract.SET}$numberOfSet\n")
+            }
+        }
     }
 
     fun decreaseSets() {
-        numberOfSet.value?.let { if (it > 0) numberOfSet.value = it - 1 }
+        numberOfSet.value?.let {
+            if (it > 0) {
+                numberOfSet.value = it - 1
+                bluetoothService.write("${BluetoothConstants.Contract.SET}$numberOfSet\n")
+            }
+        }
     }
 
-    fun setBoardTime(boardTime: BoardTime?) {
+    fun setBoardTime(boardTime: BoardTime) {
         time.value = boardTime
+        bluetoothService.write("${BluetoothConstants.Contract.TIME}${boardTime.timeFormated}")
     }
 
     fun sendGuestName(toString: String) {

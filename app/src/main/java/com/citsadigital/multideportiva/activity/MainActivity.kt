@@ -1,4 +1,4 @@
-package com.citsadigital.pantallamultideportiva.activity
+package com.citsadigital.multideportiva.activity
 
 import android.app.Activity
 import android.arch.lifecycle.Observer
@@ -15,12 +15,12 @@ import android.support.v7.preference.PreferenceManager
 import android.view.Menu
 import android.view.MenuItem
 import android.view.WindowManager
-import com.citsadigital.pantallamultideportiva.R
-import com.citsadigital.pantallamultideportiva.fragment.HomeFragment
-import com.citsadigital.pantallamultideportiva.fragment.LoginDialogFragment
-import com.citsadigital.pantallamultideportiva.model.BoardTime
-import com.citsadigital.pantallamultideportiva.util.*
-import com.citsadigital.pantallamultideportiva.viewmodel.MainViewModel
+import com.citsadigital.multideportiva.R
+import com.citsadigital.multideportiva.fragment.HomeFragment
+import com.citsadigital.multideportiva.fragment.LoginDialogFragment
+import com.citsadigital.multideportiva.model.BoardTime
+import com.citsadigital.multideportiva.util.*
+import com.citsadigital.multideportiva.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 private const val TAG_HOME_FRAGMENT = "TAG_HOME"
@@ -43,7 +43,8 @@ class MainActivity : AppCompatActivity() {
                 this,
                 Observer { t ->
                     supportActionBar?.title =
-                            if (t == true)
+//                            if (t == true)
+                            if (true)
                                 getString(R.string.toolbar_title_connected)
                             else getString(R.string.toolbar_title_disconnected)
                 })
@@ -112,8 +113,11 @@ class MainActivity : AppCompatActivity() {
             }
             REQUEST_BOARD_TIME -> {
                 val boardTime = data?.extras?.getParcelable<BoardTime>(BUNDLE_KEY_BOARD_TIME)
-                showMessage(getString(R.string.message_time_sent))
-                mainViewModel?.setBoardTime(boardTime)
+                boardTime?.let {
+                    showMessage(getString(R.string.message_time_sent))
+                    mainViewModel?.setBoardTime(it)
+                }
+
             }
         }
 

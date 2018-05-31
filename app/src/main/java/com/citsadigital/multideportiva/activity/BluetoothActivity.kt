@@ -1,4 +1,4 @@
-package com.citsadigital.pantallamultideportiva.activity
+package com.citsadigital.multideportiva.activity
 
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
@@ -8,9 +8,9 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
-import com.citsadigital.pantallamultideportiva.R
-import com.citsadigital.pantallamultideportiva.adapter.DeviceAdapter
-import com.citsadigital.pantallamultideportiva.util.BUNDLE_KEY_DEVICE
+import com.citsadigital.multideportiva.R
+import com.citsadigital.multideportiva.adapter.DeviceAdapter
+import com.citsadigital.multideportiva.util.BUNDLE_KEY_DEVICE
 import kotlinx.android.synthetic.main.activity_bluetooth.*
 
 

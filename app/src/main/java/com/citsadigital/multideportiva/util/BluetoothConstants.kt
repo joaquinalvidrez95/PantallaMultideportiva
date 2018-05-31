@@ -1,4 +1,4 @@
-package com.citsadigital.pantallamultideportiva.util
+package com.citsadigital.multideportiva.util
 
 import java.util.*
 

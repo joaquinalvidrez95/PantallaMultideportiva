@@ -1,4 +1,4 @@
-package com.citsadigital.pantallamultideportiva.fragment
+package com.citsadigital.multideportiva.fragment
 
 
 import android.app.Dialog
@@ -14,11 +14,11 @@ import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.citsadigital.pantallamultideportiva.R
-import com.citsadigital.pantallamultideportiva.util.BUNDLE_KEY_DEVICE_STATE
-import com.citsadigital.pantallamultideportiva.util.BUNDLE_KEY_MESSAGE
-import com.citsadigital.pantallamultideportiva.util.BluetoothConstants
-import com.citsadigital.pantallamultideportiva.viewmodel.MainViewModel
+import com.citsadigital.multideportiva.R
+import com.citsadigital.multideportiva.util.BUNDLE_KEY_DEVICE_STATE
+import com.citsadigital.multideportiva.util.BUNDLE_KEY_MESSAGE
+import com.citsadigital.multideportiva.util.BluetoothConstants
+import com.citsadigital.multideportiva.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.fragment_login_dialog.*
 
 class LoginDialogFragment : AppCompatDialogFragment() {

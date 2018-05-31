@@ -1,4 +1,4 @@
-package com.citsadigital.pantallamultideportiva.fragment
+package com.citsadigital.multideportiva.fragment
 
 
 import android.arch.lifecycle.Observer
@@ -9,9 +9,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import com.citsadigital.pantallamultideportiva.R
-import com.citsadigital.pantallamultideportiva.activity.MainActivity
-import com.citsadigital.pantallamultideportiva.viewmodel.MainViewModel
+import com.citsadigital.multideportiva.R
+import com.citsadigital.multideportiva.activity.MainActivity
+import com.citsadigital.multideportiva.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
 
 
@@ -104,7 +104,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         })
 
         mainViewModel.getTime().observe(this, Observer {
-            text_view_time.text = it?.time
+            text_view_time.text = it?.timeWithColon
         })
 
 

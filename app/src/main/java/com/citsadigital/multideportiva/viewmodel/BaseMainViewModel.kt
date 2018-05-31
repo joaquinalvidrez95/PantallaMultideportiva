@@ -1,4 +1,4 @@
-package com.citsadigital.pantallamultideportiva.viewmodel
+package com.citsadigital.multideportiva.viewmodel
 
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
@@ -11,8 +11,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.support.v7.preference.PreferenceManager
-import com.citsadigital.pantallamultideportiva.R
-import com.citsadigital.pantallamultideportiva.util.*
+import com.citsadigital.multideportiva.R
+import com.citsadigital.multideportiva.util.*
 
 
 /**
