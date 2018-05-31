@@ -9,6 +9,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.preference.PreferenceManager
 import android.view.Menu
@@ -23,7 +24,7 @@ import com.citsadigital.pantallamultideportiva.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 private const val TAG_HOME_FRAGMENT = "TAG_HOME"
-private const val TAG_SETTINGS_FRAGMENT = "TAG_SETTINGS"
+//private const val TAG_SETTINGS_FRAGMENT = "TAG_SETTINGS"
 const val REQUEST_DEVICE = 13
 const val REQUEST_BOARD_TIME = 12
 const val REQUEST_ENABLE_BT = 10
@@ -111,7 +112,7 @@ class MainActivity : AppCompatActivity() {
             }
             REQUEST_BOARD_TIME -> {
                 val boardTime = data?.extras?.getParcelable<BoardTime>(BUNDLE_KEY_BOARD_TIME)
-                showMessage(boardTime.toString())
+                showMessage(getString(R.string.message_time_sent))
                 mainViewModel?.setBoardTime(boardTime)
             }
         }
@@ -144,14 +145,29 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             R.id.action_menu_reset_board -> {
-                if (mainViewModel?.isConnected()?.value == true) {
-                    mainViewModel?.resetBoard()
-                } else {
-                    showMessage(getString(R.string.message_disconnected))
-                }
+                AlertDialog.Builder(this)
+                        .setNegativeButton(R.string.dialog_negative_button_cancel, null)
+                        .setPositiveButton(getString(R.string.dialog_positive_button_restart), null)
+                        .setTitle(getString(R.string.dialog_title_restart_board))
+                        .setMessage(getString(R.string.dialog_message_restart_board))
+                        .show()
+//                if (mainViewModel?.isConnected()?.value == true) {
+//                    mainViewModel?.resetBoard()
+//                } else {
+//                    showMessage(getString(R.string.message_disconnected))
+//                }
             }
+            R.id.action_menu_reset_time -> {
+                AlertDialog.Builder(this)
+                        .setNegativeButton(R.string.dialog_negative_button_cancel, null)
+                        .setPositiveButton(getString(R.string.dialog_positive_button_restart), null)
+                        .setTitle(getString(R.string.dialog_title_restart_time))
+                        .setMessage(getString(R.string.dialog_message_restart_time))
+                        .show()
+            }
+
+
             R.id.action_menu_time -> {
-//                TimeDialogFragment().show(supportFragmentManager, "")
                 val boardTime = mainViewModel?.getTime()?.value
                 boardTime?.let {
                     startActivityForResult(Intent(

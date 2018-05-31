@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <integer name="max_length_team_name">20</integer>
-    <integer name="ems_team_name">8</integer>
+    <!--<integer name="ems_team_name">8</integer>-->
     <integer name="passwordLength">4</integer>
 </resources>

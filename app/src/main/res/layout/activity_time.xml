@@ -16,24 +16,26 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <FrameLayout
+            android:layout_gravity="center_vertical"
             android:id="@+id/frameLayout_time_picker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp" />
 
 
         <!--<fragment-->
-        <!--android:name="com.citsadigital.pantallamultideportiva.fragment.TimePickerFragment"-->
+
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="match_parent"-->
         <!--android:layout_marginEnd="16dp"-->
         <!--android:layout_marginRight="16dp"-->
         <!--tools:layout="@layout/fragment_time_picker" />-->
 
-        <android.support.constraint.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <RadioGroup
                 android:id="@+id/radio_group_time_format"
@@ -62,6 +64,7 @@
             </RadioGroup>
 
             <RadioGroup
+                android:layout_marginTop="16dp"
                 android:id="@+id/radio_group_counting_mode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -87,7 +90,7 @@
                     android:text="@string/radio_button_descending" />
             </RadioGroup>
 
-        </android.support.constraint.ConstraintLayout>
+        </LinearLayout>
 
 
     </LinearLayout>
@@ -98,7 +101,7 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Enviar"
+        android:text="@string/button_text_send"
         android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

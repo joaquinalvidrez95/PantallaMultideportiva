@@ -8,7 +8,10 @@ import android.os.Bundle
 import com.citsadigital.pantallamultideportiva.R
 import com.citsadigital.pantallamultideportiva.model.BoardTime
 import com.citsadigital.pantallamultideportiva.model.Team
-import com.citsadigital.pantallamultideportiva.util.*
+import com.citsadigital.pantallamultideportiva.util.BUNDLE_KEY_DEVICE
+import com.citsadigital.pantallamultideportiva.util.BUNDLE_KEY_DEVICE_STATE
+import com.citsadigital.pantallamultideportiva.util.BUNDLE_KEY_MESSAGE
+import com.citsadigital.pantallamultideportiva.util.BluetoothConstants
 
 
 class MainViewModel(application: Application) : BaseMainViewModel(application) {
@@ -83,20 +86,20 @@ class MainViewModel(application: Application) : BaseMainViewModel(application) {
 
     override fun fixControls(readBuf: String) {
         try {
-            val editor = sharedPreferences
-                    .edit()
-                    .putBoolean(app.getString(R.string.pref_key_power), toBoolean(readBuf[1].toInt() - 48))
-                    .putInt(app.getString(R.string.pref_key_speed), readBuf[2].toInt() - 48)
-                    .putInt(app.getString(R.string.pref_key_brightness), readBuf[24].toInt() - 48)
-                    .putInt(app.getString(R.string.pref_key_time_buy), Integer.parseInt(readBuf.substring(25, 27)))
-                    .putInt(app.getString(R.string.pref_key_time_sell), Integer.parseInt(readBuf.substring(27, 29)))
-                    .putString(app.getString(R.string.pref_key_effect), readBuf.substring(29, 30))
-                    .putInt(app.getString(R.string.pref_key_effect_speed), Integer.parseInt(readBuf.substring(30, 31)))
-
-
-
-
-            editor.apply()
+//            val editor = sharedPreferences
+//                    .edit()
+//                    .putBoolean(app.getString(R.string.pref_key_power), toBoolean(readBuf[1].toInt() - 48))
+//                    .putInt(app.getString(R.string.pref_key_speed), readBuf[2].toInt() - 48)
+//                    .putInt(app.getString(R.string.pref_key_brightness), readBuf[24].toInt() - 48)
+//                    .putInt(app.getString(R.string.pref_key_time_buy), Integer.parseInt(readBuf.substring(25, 27)))
+//                    .putInt(app.getString(R.string.pref_key_time_sell), Integer.parseInt(readBuf.substring(27, 29)))
+//                    .putString(app.getString(R.string.pref_key_effect), readBuf.substring(29, 30))
+//                    .putInt(app.getString(R.string.pref_key_effect_speed), Integer.parseInt(readBuf.substring(30, 31)))
+//
+//
+//
+//
+//            editor.apply()
         } catch (e: StringIndexOutOfBoundsException) {
 
         }
@@ -218,6 +221,14 @@ class MainViewModel(application: Application) : BaseMainViewModel(application) {
 
     fun setBoardTime(boardTime: BoardTime?) {
         time.value = boardTime
+    }
+
+    fun sendGuestName(toString: String) {
+
+    }
+
+    fun sendHomeName(toString: String) {
+
     }
 
 

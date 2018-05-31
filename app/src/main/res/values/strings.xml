@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Pantalla Multideportiva</string>
 
-    <string name="tab_title_home">Principal</string>
-    <string name="tab_title_parameters">Parámetros</string>
+    <!--<string name="tab_title_home">Principal</string>-->
+    <!--<string name="tab_title_parameters">Parámetros</string>-->
 
     <string name="toolbar_title_bluetooth">Seleccionar dispositivo</string>
     <string name="toolbar_title_about">Acerca de</string>
@@ -12,6 +12,7 @@
     <string name="toolbar_title_pause">Parar</string>
     <string name="toolbar_title_reset_board">Reiniciar tablero</string>
     <string name="toolbar_title_time">Ajustar tiempo</string>
+    <string name="toolbar_title_reset_time">Reiniciar tiempo</string>
 
     <string name="dialog_title_login_dialog">Ingrese el pin</string>
 
@@ -39,14 +40,9 @@
     <string name="pref_title_category_time">Tiempo</string>
     <string name="text_view_title_set">Set</string>
 
-    <string name="tab_title_exchanges">Divisas</string>
-    <string name="tab_title_settings">Parámetros</string>
-    <string name="tab_title_messages_list">Mensajes</string>
-
-    <string name="action_title_main_send_quick_message">Enviar mensaje instantáneo</string>
-    <string name="action_title_edit_message">Editar</string>
-    <string name="action_title_delete_message">Eliminar</string>
-    <string name="action_title_send_message">Enviar</string>
+    <!--<string name="tab_title_exchanges">Divisas</string>-->
+    <!--<string name="tab_title_settings">Parámetros</string>-->
+    <!--<string name="tab_title_messages_list">Mensajes</string>-->
 
 
     <string name="button_text_update_exchanges">Enviar divisas</string>
@@ -63,11 +59,11 @@
 
     <string name="dialog_positive_button_accept">Aceptar</string>
     <string name="dialog_positive_button_save">Guardar</string>
-    <string name="dialog_positive_button_send_quick_message">@string/action_title_send_message</string>
+    <string name="dialog_positive_button_restart">Reiniciar</string>
 
     <string name="dialog_negative_button_cancel">Cancelar</string>
 
-    <string name="message_message_dialog_title_repeated">Título en uso</string>
+    <!--<string name="message_message_dialog_title_repeated">Título en uso</string>-->
     <string name="message_password">Pin incorrecto, intente de nuevo</string>
     <string name="message_invalid_colours">Color de fondo y texto inválidos</string>
     <string name="message_invalid_device">Dispositivo inválido</string>
@@ -77,58 +73,65 @@
     <string name="message_message_added">Mensaje guardado</string>
     <string name="message_disconnected">Dispositivo desconectado</string>
     <string name="message_message_deleted">Mensaje eliminado</string>
+    <string name="message_invalid_time">En formato Minutos:Segundos el tiempo máximo es 01:39:59</string>
 
     <string name="pref_default_device_address">DeviceAddressDefault</string>
-    <string name="pref_default_displaying_mode">0</string>
-    <string name="pref_default_view">0</string>
-    <string name="pref_default_effect">0</string>
+    <!--<string name="pref_default_displaying_mode">0</string>-->
+    <!--<string name="pref_default_view">0</string>-->
+    <!--<string name="pref_default_effect">0</string>-->
     <string name="pref_default_password" />
 
-    <string name="pref_title_color_buy">Color de compra</string>
-    <string name="pref_title_color_sell">Color de venta</string>
-    <string name="pref_title_color_message">Color de mensaje</string>
-    <string name="pref_title_color_background">Color de fondo</string>
-    <string name="pref_title_power">Encender display</string>
-    <string name="pref_title_brightness">Brillo</string>
-    <string name="pref_title_displaying_mode">Modo de desplegar vista</string>
-    <string name="pref_title_speed">Velocidad de mensaje</string>
-    <string name="pref_title_effect_speed">Velocidad de efecto</string>
-    <string name="pref_title_effect">Tipo de efecto</string>
-    <string name="pref_title_time_buy">Tiempo de compra</string>
-    <string name="pref_title_time_sell">Tiempo de venta</string>
-    <string name="pref_title_view">Tipo de vista</string>
+    <!--<string name="pref_title_color_buy">Color de compra</string>-->
+    <!--<string name="pref_title_color_sell">Color de venta</string>-->
+    <!--<string name="pref_title_color_message">Color de mensaje</string>-->
+    <!--<string name="pref_title_color_background">Color de fondo</string>-->
+    <!--<string name="pref_title_power">Encender display</string>-->
+    <!--<string name="pref_title_brightness">Brillo</string>-->
+    <!--<string name="pref_title_displaying_mode">Modo de desplegar vista</string>-->
+    <!--<string name="pref_title_speed">Velocidad de mensaje</string>-->
+    <!--<string name="pref_title_effect_speed">Velocidad de efecto</string>-->
+    <!--<string name="pref_title_effect">Tipo de efecto</string>-->
+    <!--<string name="pref_title_time_buy">Tiempo de compra</string>-->
+    <!--<string name="pref_title_time_sell">Tiempo de venta</string>-->
+    <!--<string name="pref_title_view">Tipo de vista</string>-->
+    .
 
-    <string name="pref_title_category_messages">Mensajes</string>
-    <string name="pref_title_category_display">Estado del display</string>
-    <string name="pref_title_category_colours">Colores</string>
-    <string name="pref_title_category_visibility">Visibilidad</string>
-    <string name="pref_title_category_effects">Efectos</string>
+    <!--<string name="pref_title_category_messages">Mensajes</string>-->
+    <!--<string name="pref_title_category_display">Estado del display</string>-->
+    <!--<string name="pref_title_category_colours">Colores</string>-->
+    <!--<string name="pref_title_category_visibility">Visibilidad</string>-->
+    <!--<string name="pref_title_category_effects">Efectos</string>-->
 
     <string name="pref_key_password">password_key</string>
-    <string name="pref_key_color_buy">TextoSuperiorKey</string>
-    <string name="pref_key_color_sell">TextoInferiorKey</string>
-    <string name="pref_key_color_message">MessageColorKey</string>
-    <string name="pref_key_color_background">FondoKey</string>
-    <string name="pref_key_power">power_key</string>
-    <string name="pref_key_category_effect">EffectCategoryKey</string>
-    <string name="pref_key_effect">EffectKey</string>
-    <string name="pref_key_brightness">brightness_key</string>
-    <string name="pref_key_view">VistaKey</string>
-    <string name="pref_key_speed">MessageSpeedKey</string>
-    <string name="pref_key_effect_speed">EffectSpeedKey</string>
-    <string name="pref_key_displaying_mode">key_displayingmode</string>
-    <string name="pref_key_time_buy">key_time_buy</string>
-    <string name="pref_key_time_sell">key_time_sell</string>
+    <!--<string name="pref_key_color_buy">TextoSuperiorKey</string>-->
+    <!--<string name="pref_key_color_sell">TextoInferiorKey</string>-->
+    <!--<string name="pref_key_color_message">MessageColorKey</string>-->
+    <!--<string name="pref_key_color_background">FondoKey</string>-->
+    <!--<string name="pref_key_power">power_key</string>-->
+    <!--<string name="pref_key_category_effect">EffectCategoryKey</string>-->
+    <!--<string name="pref_key_effect">EffectKey</string>-->
+    <!--<string name="pref_key_brightness">brightness_key</string>-->
+    <!--<string name="pref_key_view">VistaKey</string>-->
+    <!--<string name="pref_key_speed">MessageSpeedKey</string>-->
+    <!--<string name="pref_key_effect_speed">EffectSpeedKey</string>-->
+    <!--<string name="pref_key_displaying_mode">key_displayingmode</string>-->
+    <!--<string name="pref_key_time_buy">key_time_buy</string>-->
+    <!--<string name="pref_key_time_sell">key_time_sell</string>-->
     <string name="pref_key_device_address">DeviceAddressKey</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="radio_group_title_time_format">Formato de hora</string>
     <string name="radio_button_hours_minutes">Horas:Minutos</string>
     <string name="radio_button_minutes_seconds">Minutos:Segundos</string>
     <string name="radio_button_ascending">Ascendente</string>
     <string name="radio_button_descending">Descendente</string>
     <string name="radio_group_title_counting_mode">Modo de conteo</string>
+    <string name="button_text_send">Enviar</string>
+    <string name="message_time_sent">Tiempo enviado</string>
+    <string name="dialog_title_restart_time">¿Reiniciar tiempo?</string>
+    <string name="dialog_message_restart_time">Esto hará que la cuenta de tiempo se pierda.</string>
+    <string name="dialog_title_restart_board">¿Reiniciar tablero?</string>
+    <string name="dialog_message_restart_board">Todas los puntos, faltas y el set cambiarán a cero.</string>
 
 
 </resources>

@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import com.citsadigital.pantallamultideportiva.R
 import com.citsadigital.pantallamultideportiva.activity.MainActivity
 import com.citsadigital.pantallamultideportiva.viewmodel.MainViewModel
@@ -47,27 +48,43 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
         mainViewModel = ViewModelProviders.of(activity!!)[MainViewModel::class.java]
 
-        button_increase_home_score.setOnClickListener(this)
-        button_decrease_home_score.setOnClickListener(this)
-        button_increase_home_violations.setOnClickListener(this)
-        button_decrease_home_violations.setOnClickListener(this)
-        button_increase_guest_score.setOnClickListener(this)
-        button_decrease_guest_score.setOnClickListener(this)
-        button_increase_guest_violations.setOnClickListener(this)
-        button_decrease_guest_violations.setOnClickListener(this)
-        button_increase_sets.setOnClickListener(this)
-        button_decrease_sets.setOnClickListener(this)
+//        button_increase_home_score.setOnClickListener(this)
+//        button_decrease_home_score.setOnClickListener(this)
+//        button_increase_home_violations.setOnClickListener(this)
+//        button_decrease_home_violations.setOnClickListener(this)
+//        button_increase_guest_score.setOnClickListener(this)
+//        button_decrease_guest_score.setOnClickListener(this)
+//        button_increase_guest_violations.setOnClickListener(this)
+//        button_decrease_guest_violations.setOnClickListener(this)
+//        button_increase_sets.setOnClickListener(this)
+//        button_decrease_sets.setOnClickListener(this)
 
-//        button_increase_home_score.setOnClickListener { mainViewModel.increaseHomeScore() }
-//        button_decrease_home_score.setOnClickListener { mainViewModel.decreaseHomeScore() }
-//        button_increase_home_violations.setOnClickListener { mainViewModel.increaseHomeViolations() }
-//        button_decrease_home_violations.setOnClickListener { mainViewModel.decreaseHomeViolations() }
-//        button_increase_guest_score.setOnClickListener { mainViewModel.increaseGuestScore() }
-//        button_decrease_guest_score.setOnClickListener { mainViewModel.decreaseGuestScore() }
-//        button_increase_guest_violations.setOnClickListener { mainViewModel.increaseGuestViolations() }
-//        button_decrease_guest_violations.setOnClickListener { mainViewModel.decreaseGuestViolations() }
-//        button_increase_sets.setOnClickListener { mainViewModel.increaseSets() }
-//        button_decrease_sets.setOnClickListener { mainViewModel.decreaseSets() }
+        button_increase_home_score.setOnClickListener { mainViewModel.increaseHomeScore() }
+        button_decrease_home_score.setOnClickListener { mainViewModel.decreaseHomeScore() }
+        button_increase_home_violations.setOnClickListener { mainViewModel.increaseHomeViolations() }
+        button_decrease_home_violations.setOnClickListener { mainViewModel.decreaseHomeViolations() }
+        button_increase_guest_score.setOnClickListener { mainViewModel.increaseGuestScore() }
+        button_decrease_guest_score.setOnClickListener { mainViewModel.decreaseGuestScore() }
+        button_increase_guest_violations.setOnClickListener { mainViewModel.increaseGuestViolations() }
+        button_decrease_guest_violations.setOnClickListener { mainViewModel.decreaseGuestViolations() }
+        button_increase_sets.setOnClickListener { mainViewModel.increaseSets() }
+        button_decrease_sets.setOnClickListener { mainViewModel.decreaseSets() }
+
+        edit_text_home_name.setOnEditorActionListener { v, actionId, event ->
+            if (actionId == EditorInfo.IME_ACTION_SEND) {
+                mainViewModel.sendHomeName(v.text.toString())
+                true
+            }
+            false
+        }
+
+        edit_text_guest_name.setOnEditorActionListener { v, actionId, event ->
+            if (actionId == EditorInfo.IME_ACTION_SEND) {
+                mainViewModel.sendGuestName(v.text.toString())
+                true
+            }
+            false
+        }
 
 
         mainViewModel.getHomeScore().observe(this, Observer {

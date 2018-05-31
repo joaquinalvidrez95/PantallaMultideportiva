@@ -16,7 +16,7 @@ fun secondsToHours(totalSeconds: Int) = totalSeconds / 3600
 fun secondsToMinutes(totalSeconds: Int) = totalSeconds / 60 % 60
 fun totalSecondsToSeconds(totalSeconds: Int) = totalSeconds % 60
 
-data class BoardTime(var totalSeconds: Int = 5632, var format: Int = 0, var countMode: Int = 0) : Parcelable {
+data class BoardTime(var totalSeconds: Int = 0, var format: Int = 0, var countMode: Int = 0) : Parcelable {
     val time: String
         get() {
             return when (format) {

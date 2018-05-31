@@ -7,21 +7,25 @@ object BluetoothConstants {
     val uuid: UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB")
 
     object Contract {
-        const val HOME_SCORE = "e"
-        const val GUEST_SCORE = "e"
-        const val HOME_VIOLATIONS = "e"
-        const val GUEST_VIOLATIONS = "e"
+        const val HOME_SCORE = "a"
+        const val GUEST_SCORE = "b"
+        const val HOME_VIOLATIONS = "c"
+        const val GUEST_VIOLATIONS = "d"
         const val SET = "e"
-        const val HOME_NAME = "e"
-        const val GUEST_NAME = "e"
-
+        const val HOME_NAME = "f"
+        const val GUEST_NAME = "g"
+        const val TIME = "h"
+        const val TIME_FORMAT = "i"
+        const val COUNTING_MODE = "j"
+        const val START_STOP = "k"
+        const val RESET_TIME = "l"
+        const val RESET_BOARD = "m"
         const val POWER = "p"
 
         const val REQUEST = "r"
 
-
         const val ON_PIN_WRONG = "J"
-        const val ON_FEEDBACK_RECEIVED = "w"
+        const val ON_FEEDBACK_RECEIVED = "z"
     }
 
     object DeviceState {
