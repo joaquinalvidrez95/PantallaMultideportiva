@@ -129,48 +129,14 @@ class MainActivity : AppCompatActivity() {
             R.id.action_menu_about -> startActivity(Intent(this, AboutActivity::class.java))
             R.id.action_menu_bluetooth -> {
                 if (BluetoothAdapter.getDefaultAdapter().isEnabled) {
-                    startActivityForResult(Intent(this, BluetoothActivity::class.java), REQUEST_DEVICE)
+                    startActivityForResult(Intent(
+                            this,
+                            BluetoothActivity::class.java),
+                            REQUEST_DEVICE)
                 } else {
                     startActivityForResult(Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE), REQUEST_ENABLE_BT)
                 }
             }
-            R.id.action_menu_play -> {
-                if (mainViewModel?.isConnected()?.value == true) {
-                    mainViewModel?.playBoard()
-                } else {
-                    showMessage(getString(R.string.message_disconnected))
-                }
-            }
-            R.id.action_menu_pause -> {
-                if (mainViewModel?.isConnected()?.value == true) {
-                    mainViewModel?.pauseBoard()
-                } else {
-                    showMessage(getString(R.string.message_disconnected))
-                }
-            }
-            R.id.action_menu_reset_board -> {
-                AlertDialog.Builder(this)
-                        .setNegativeButton(R.string.dialog_negative_button_cancel, null)
-                        .setPositiveButton(getString(R.string.dialog_positive_button_restart), null)
-                        .setTitle(getString(R.string.dialog_title_restart_board))
-                        .setMessage(getString(R.string.dialog_message_restart_board))
-                        .show()
-//                if (mainViewModel?.isConnected()?.value == true) {
-//                    mainViewModel?.resetBoard()
-//                } else {
-//                    showMessage(getString(R.string.message_disconnected))
-//                }
-            }
-            R.id.action_menu_reset_time -> {
-                AlertDialog.Builder(this)
-                        .setNegativeButton(R.string.dialog_negative_button_cancel, null)
-                        .setPositiveButton(getString(R.string.dialog_positive_button_restart), null)
-                        .setTitle(getString(R.string.dialog_title_restart_time))
-                        .setMessage(getString(R.string.dialog_message_restart_time))
-                        .show()
-            }
-
-
             R.id.action_menu_time -> {
                 val boardTime = mainViewModel?.getTime()?.value
                 boardTime?.let {
@@ -183,6 +149,40 @@ class MainActivity : AppCompatActivity() {
                 }
 
             }
+            else -> {
+                if (mainViewModel?.isConnected()?.value == true) {
+                    when (item?.itemId) {
+                        R.id.action_menu_play -> mainViewModel?.playBoard()
+                        R.id.action_menu_pause -> mainViewModel?.pauseBoard()
+                        R.id.action_menu_reset_board -> {
+                            AlertDialog.Builder(this)
+                                    .setNegativeButton(R.string.dialog_negative_button_cancel, null)
+                                    .setPositiveButton(getString(R.string.dialog_positive_button_restart),
+                                            { dialogInterface, i ->
+                                                mainViewModel?.resetBoard()
+                                            })
+                                    .setTitle(getString(R.string.dialog_title_restart_board))
+                                    .setMessage(getString(R.string.dialog_message_restart_board))
+                                    .show()
+                        }
+                        R.id.action_menu_reset_time -> {
+                            AlertDialog.Builder(this)
+                                    .setNegativeButton(R.string.dialog_negative_button_cancel, null)
+                                    .setPositiveButton(getString(R.string.dialog_positive_button_restart),
+                                            { dialogInterface, i ->
+                                                mainViewModel?.resetTime()
+                                            })
+                                    .setTitle(getString(R.string.dialog_title_restart_time))
+                                    .setMessage(getString(R.string.dialog_message_restart_time))
+                                    .show()
+                        }
+                    }
+
+                } else {
+                    showMessage(getString(R.string.message_disconnected))
+                }
+            }
+
 
         }
         return super.onOptionsItemSelected(item)

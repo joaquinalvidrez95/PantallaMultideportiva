@@ -23,11 +23,7 @@ class MainViewModel(application: Application) : BaseMainViewModel(application) {
     private val time = MutableLiveData<BoardTime>()
 
     init {
-        homeScore.value = 0
-        homeViolations.value = 0
-        guestScore.value = 0
-        guestViolations.value = 0
-        numberOfSet.value = 0
+        clearBoard()
         time.value = BoardTime()
     }
 
@@ -133,7 +129,19 @@ class MainViewModel(application: Application) : BaseMainViewModel(application) {
 
     fun playBoard() = bluetoothService.write("${BluetoothConstants.Contract.START_STOP}$COMMAND_START\n")
 
-    fun resetBoard() = bluetoothService.write("${BluetoothConstants.Contract.RESET_BOARD}\n")
+    fun resetBoard() {
+        clearBoard()
+        bluetoothService.write("${BluetoothConstants.Contract.RESET_BOARD}\n")
+    }
+
+    private fun clearBoard() {
+        homeScore.value = 0
+        homeViolations.value = 0
+        guestScore.value = 0
+        guestViolations.value = 0
+        numberOfSet.value = 0
+    }
+
 
     fun pauseBoard() = bluetoothService.write("${BluetoothConstants.Contract.START_STOP}$COMMAND_PAUSE\n")
 
@@ -222,15 +230,20 @@ class MainViewModel(application: Application) : BaseMainViewModel(application) {
 
     fun setBoardTime(boardTime: BoardTime) {
         time.value = boardTime
-        bluetoothService.write("${BluetoothConstants.Contract.TIME}${boardTime.timeFormated}")
+        bluetoothService.write("${BluetoothConstants.Contract.TIME}${boardTime.timeFormated}\n")
     }
 
-    fun sendGuestName(toString: String) {
+    fun sendGuestName(name: String) {
+        bluetoothService.write("${BluetoothConstants.Contract.GUEST_NAME}$name\n")
 
     }
 
-    fun sendHomeName(toString: String) {
+    fun sendHomeName(name: String) {
+        bluetoothService.write("${BluetoothConstants.Contract.HOME_NAME}$name\n")
+    }
 
+    fun resetTime() {
+        time.value = BoardTime()
     }
 
 
